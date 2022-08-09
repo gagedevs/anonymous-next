@@ -1,10 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import Script from 'next/Script';
 import Particles from 'react-tsparticles';
 import { loadFull } from "tsparticles";
-import { useCallback } from 'react';
 
 
 export default function Home() {
@@ -57,11 +55,12 @@ export default function Home() {
           </form>
         </div>
         
-          <Script src="/uv/uv.bundle.js"></Script>
-          <Script src="/uv/uv.config.js"></Script>
-          <Script src="form.js"></Script>
-          <Script src="https://kit.fontawesome.com/be27c0ad9d.js" crossOrigin="anonymous"></Script>
-          <Script src="/js/title.js"></Script>
+        <Script src="/uv/uv.bundle.js"></Script>
+        <Script src="/uv/uv.config.js"></Script>
+        <Script src="form.js"></Script>
+        <Script src="https://kit.fontawesome.com/be27c0ad9d.js" crossOrigin="anonymous"></Script>
+        <Script src="/js/title.js"></Script>
+        
         
         
          {/*<Script id="cid0020000319109200791" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 200px;height: 300px;">{"handle":"anonprox","arch":"js","styles":{"a":"CC0000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"CC0000","l":"CC0000","m":"CC0000","n":"FFFFFF","p":"10","q":"CC0000","r":100,"pos":"br","cv":1,"cvbg":"CC0000","cvw":75,"cvh":30}}
