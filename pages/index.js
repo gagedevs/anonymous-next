@@ -20,7 +20,7 @@ export default function Home() {
   };
   return (
 
-    <div>
+    <>
       <Particles id="tsparticles" init={particlesInit} loaded={particlesLoaded} url="/js/particles.json" />
       <Head>
         <title>Anonymous</title>
@@ -32,7 +32,6 @@ export default function Home() {
       </Head>
       
       <body>
-        <div id="particles-div"></div>
         <nav className="navbar">
           <div className="nav-options">
             <a href="/" className="nav-option"><i className="home-icon fa fa-house-user fa-2xl fa-fw"></i>Home</a>
@@ -56,7 +55,7 @@ export default function Home() {
         </div>
         
         <Script src="/uv/uv.bundle.js"></Script>
-        <Script src="/uv/uv.config.js"></Script>
+        <Script src="/uv/uv.config.js" id="config">console.log('__');</Script>
         <Script src="form.js"></Script>
         <Script src="https://kit.fontawesome.com/be27c0ad9d.js" crossOrigin="anonymous"></Script>
         <Script src="/js/title.js"></Script>
@@ -67,6 +66,6 @@ export default function Home() {
         </Script>*/}
       </body>
 
-    </div>
+    </>
   )
 }
