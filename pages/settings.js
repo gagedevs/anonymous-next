@@ -4,18 +4,10 @@ import Head from 'next/head';
 import Script from 'next/Script';
 import Particles from 'react-tsparticles';
 import { loadFull } from "tsparticles";
-import { get, set, faviconChange } from '../js/title';
-const titleValue = useRef(null);
-const headRef = useRef(null);
-const linkValue = useRef(null);
-export function favicon() {
-  const link = headRef.current.getElementsByTagName('link')[0];
-  if(link.rel == "icon") {
-    link.parentNode.removeChild(link);
-  }
-}
-export default function Settings() {
 
+export default function Settings() {
+  const titleValue = useRef(null);
+  const linkValue = useRef(null);
 console.log(titleValue.current);
   const particlesInit = async (main) => {
     console.log(main);
@@ -35,21 +27,37 @@ console.log(titleValue.current);
         set('title', v)
       }, []);
    
-}
-
+  }
+  useEffect(() => {
+    function faviconChange(value) {
+      set('link', value);
+      const link = doucment.getElementById('favicon');
+      link.href = {value} || "Anonymous";
+      console.log("working " + link.href)
+    }
+  })
+  
+  function get(a) {
+    localStorage.getItem(a);
+  }
+  function set(a,b) {
+    if(typeof window !== "undefined") {
+      localStorage.setItem(a, b);
+    }
+  }
   return (
 
     <>
-      {/* <Particles id="tsparticles" init={particlesInit} loaded={particlesLoaded} url="/js/particles.json" />
+      <Particles id="tsparticles" init={particlesInit} loaded={particlesLoaded} url="/js/particles.json" />
       <Script src="https://kit.fontawesome.com/be27c0ad9d.js" crossOrigin="anonymous"></Script>
         
-      <Head ref={headRef}>
+      <Head>
         <title>Anonymous</title>
         <meta name="description" content="Anonymize your online identity with Anonymous, the best school unblocker using an Ultraviolet Backend, for work, school, and home." />
         <meta name="theme-color" content="#6853f"></meta>
         <meta charSet="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
-        
+        <link rel="icon" href="/favicon.ico" id="favicon"/>
       </Head>
       
       <body>
@@ -93,8 +101,8 @@ console.log(titleValue.current);
         <Script src="/js/blank.js"></Script>
         <Script src="/js/particles.js"></Script>
          {/*<Script id="cid0020000319109200791" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 200px;height: 300px;">{"handle":"anonprox","arch":"js","styles":{"a":"CC0000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"CC0000","l":"CC0000","m":"CC0000","n":"FFFFFF","p":"10","q":"CC0000","r":100,"pos":"br","cv":1,"cvbg":"CC0000","cvw":75,"cvh":30}}
-        </Script>
-    </body> */}
+        </Script>*/}
+    </body>
 
     </>
   )
